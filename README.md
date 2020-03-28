@@ -1,2 +1,0 @@
-# tienthegainz
-React project ITSS
