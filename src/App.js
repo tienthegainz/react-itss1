@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import SongIcon from './SongIcon.js';
+import Profile from './Profile.js'
 
 class App extends Component {
   constructor() {
@@ -10,7 +11,7 @@ class App extends Component {
         {
           name: "Four Season",
           image: "https://avatar-nct.nixcdn.com/song/2019/03/24/9/3/e/d/1553436192079_640.jpg",
-          description: "The Korean's Beyonce returns with newest hits!!!!",
+          description: "The Korean's Beyonce returns!!!!",
         },
         {
           name: "Don't start now",
@@ -20,7 +21,7 @@ class App extends Component {
         {
           name: "Four Season",
           image: "https://avatar-nct.nixcdn.com/song/2019/03/24/9/3/e/d/1553436192079_640.jpg",
-          description: "The Korean's Beyonce returns with newest hits!!!!",
+          description: "The Korean's Beyonce returns!!!!",
         },
         {
           name: "Don't start now",
@@ -35,7 +36,7 @@ class App extends Component {
         {
           name: "Duyen Am",
           image: "https://media.ex-cdn.com/EXP/media.homeaz.vn/files/content/2019/10/23/tf8tj-so-15715778039661027443493-1108.jpeg",
-          description: "Vietnamese top chart single. Asia award winner",
+          description: "Vietnamese top chart single.",
         },
         {
           name: "Kill this love",
@@ -45,7 +46,7 @@ class App extends Component {
         {
           name: "Duyen Am",
           image: "https://media.ex-cdn.com/EXP/media.homeaz.vn/files/content/2019/10/23/tf8tj-so-15715778039661027443493-1108.jpeg",
-          description: "Vietnamese top chart single. Asia award winner",
+          description: "Vietnamese top chart single.",
         },
       ]
     };
@@ -75,7 +76,10 @@ class App extends Component {
   render() {
     var row1 = this.render_songs();
     return (
-      <div className={App}>
+      <div className="App">
+        <div className="App-profile">
+          <Profile />
+        </div>
         {row1}
       </div>
     );

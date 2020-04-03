@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card } from 'antd';
-import { Button, Tooltip } from 'antd';
+import { Button } from 'antd';
 import { CaretRightOutlined, HeartOutlined, HeartFilled } from '@ant-design/icons';
 import './SongIcon.css';
 
@@ -43,10 +43,12 @@ class SongIcon extends Component {
                 <Meta title={this.props.name} description={this.props.description} />
 
                 <Button
+                    style={{ borderColor: "black" }}
                     onClick={this.changeHeart}
                     icon={this.state.like}
                 />
                 <Button
+                    style={{ borderColor: "black" }}
                     icon={<CaretRightOutlined />}
                     onClick={this.props.onClick}
                 />
