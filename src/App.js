@@ -82,10 +82,13 @@ class App extends Component {
           <Profile />
         </div>
         
-      <div className="App-grid-container" style={{width: 250,}}>
-        <Search />
+      <div className="App-grid-container" style={{width: 250}}>
+        <Search songs={this.state.songs}/>
       </div>
         {row1}
+        
+        {console.log(this.state.songs)}
+        
       </div>
     );
   }

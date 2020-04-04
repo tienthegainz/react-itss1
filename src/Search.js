@@ -1,19 +1,41 @@
 import React, { Component } from 'react';
 import { Input } from 'antd';
 
-// const { Search } = Input;
 class Search extends Component{
-	// constructor(props){
-	// 	super(props);
+	constructor(props){
+		super(props);
+		this.state={
+			results:[],
+		};
+	}
 
-	// }
+	handleOnInputChange = (event) => {
+		const query=event.target.value;
+		let results=[];
+		
+		if(query.length)
+		{
+			this.props.songs.map((item,idx)=>{
+				if(item.name.includes(query)){
+					results[idx]=item;
+				}
+			});
+		this.state.results=results;
+		// console.log(results);
+		}
+		return this.state.results;
+	}
+
+	
+
 	render(){
 		return(
-  		<div>
-    	<br />
-    	<Input placeholder="Song Search" onSearch={value => console.log(value)} enterButton />
-    	<br />
-  		</div>
+  		<label>
+    	
+    	<Input placeholder="Song Search" onChange={this.handleOnInputChange} enterButton />
+    	<i class="fa fa-search" aria-hidden="true"/>
+    	
+  		</label>
   )
 	}
 }
