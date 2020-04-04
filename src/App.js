@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import SongIcon from './SongIcon.js';
-import Profile from './Profile.js'
+import Profile from './Profile.js';
+import Search from './Search.js';
 
 class App extends Component {
   constructor() {
@@ -80,6 +81,10 @@ class App extends Component {
         <div className="App-profile">
           <Profile />
         </div>
+        
+      <div className="App-grid-container" style={{width: 250,}}>
+        <Search />
+      </div>
         {row1}
       </div>
     );
