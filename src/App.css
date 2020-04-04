@@ -26,7 +26,11 @@
   display: grid;
   max-width: 150px;
   grid-template-columns: 200px;
-  padding-top: 10px;
+  position: fixed;
+  top: 155px;
+  left: 1050px;
+  border: 1px solid lightblue;
+  /* padding-top: 10px;
   padding-left: 1050px;
-  padding-bottom: 0px;
+  padding-bottom: 0px; */
 }

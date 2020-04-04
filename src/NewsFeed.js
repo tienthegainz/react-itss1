@@ -1,27 +1,25 @@
 import React, { Component } from 'react';
 import './NewsFeed.css';
-import {Button, Card,Menu} from 'antd';
+import { Button, Card, Menu } from 'antd';
 
 
 class NewsFeed extends Component {
     constructor(props) {
         super(props);
-
     }
-    seeMore(){
+    seeMore() {
         //
     }
     render() {
         return (
-            <Card hoverable
-            >
+            <Card hoverable bordered={false}>
                 <div class="User-name" >
                     <b> {this.props.username}</b>
-                    </div>
+                </div>
                 <div onClick={this.seeMore}>
                     {this.props.usercontent}
-                    </div>
-            </Card>
+                </div>
+            </Card >
         )
     }
 }
