@@ -23,7 +23,7 @@ class Search extends Component{
 		this.state.results=results;
 		// console.log(results);
 		}
-		return this.state.results;
+		this.props.callbackFromParent(this.state.results);
 	}
 
 	

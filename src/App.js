@@ -49,13 +49,15 @@ class App extends Component {
           image: "https://media.ex-cdn.com/EXP/media.homeaz.vn/files/content/2019/10/23/tf8tj-so-15715778039661027443493-1108.jpeg",
           description: "Vietnamese top chart single.",
         },
-      ]
+      ],
+      row1: <p/>,
+
     };
   }
 
-  render_songs() {
+  render_songs(searchData) {
     // console.log(this.state.songs);
-    var songs = this.state.songs.map((item, idx) =>
+    var songs = searchData.map((item, idx) =>
       <div className="App-grid-item">
         <SongIcon
           index={idx}
@@ -74,8 +76,13 @@ class App extends Component {
     console.log('Play song: ', index);
   }
 
+  searchCallback= (searchData)=>{
+    {/* this.state.row1=this.render_songs(searchData); 
+      console.log(searchData[1]); */}
+  };
+
   render() {
-    var row1 = this.render_songs();
+    this.state.row1 = this.render_songs(this.state.songs);
     return (
       <div className="App">
         <div className="App-profile">
@@ -83,11 +90,9 @@ class App extends Component {
         </div>
         
       <div className="App-grid-container" style={{width: 250}}>
-        <Search songs={this.state.songs}/>
+        <Search songs={this.state.songs} callbackFromParent={this.searchCallback}/>
       </div>
-        {row1}
-        
-        {console.log(this.state.songs)}
+        {this.state.row1}
         
       </div>
     );
