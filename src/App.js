@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import SongIcon from './SongIcon.js';
 import Profile from './Profile.js'
+import NewsFeed from './NewsFeed';
+
+import { Menu } from 'antd';
+
+const { SubMenu } = Menu;
 
 class App extends Component {
   constructor() {
@@ -48,6 +53,24 @@ class App extends Component {
           image: "https://media.ex-cdn.com/EXP/media.homeaz.vn/files/content/2019/10/23/tf8tj-so-15715778039661027443493-1108.jpeg",
           description: "Vietnamese top chart single.",
         },
+      ],
+      feed: [
+          {
+              user: "some user name",
+              usercontent: "All too well"
+          },
+          {
+              user: "Taeyeon",
+              usercontent: "こんにちは"
+          },
+          {
+              user: "Bui Ngoc Tu",
+              usercontent: "Look what you made me do"
+          },
+          {
+              user: "Taylor Swift",
+              usercontent: "Born this way"
+          }
       ]
     };
   }
@@ -73,14 +96,46 @@ class App extends Component {
     console.log('Play song: ', index);
   }
 
+  render_feed(){
+      var feeds = this.state.feed.map((item, idx) =>
+          <div>
+              <NewsFeed
+                  index={idx}
+                  username={item.user}
+                  usercontent ={item.usercontent}
+
+                  onClick={() => this.play_song(idx)}
+              />
+          </div>
+      );
+      feeds = <div >{feeds}</div>;
+      return feeds;
+  }
+
   render() {
     var row1 = this.render_songs();
+    var renderfeeds = this.render_feed();
     return (
       <div className="App">
         <div className="App-profile">
           <Profile />
         </div>
-        {row1}
+          <Menu className="Feeds-grid-container"
+              defaultSelectedKeys={['1']}
+              defaultOpenKeys={['defaultMenu']}
+              mode="inline"
+            >
+              <SubMenu
+                  key="defaultMenu"
+                  title={
+              <span>Newsfeed</span>
+                  }
+              >
+                  {renderfeeds}
+              </SubMenu>
+          </Menu>
+
+          {row1}
       </div>
     );
   }
