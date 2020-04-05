@@ -141,7 +141,7 @@ class App extends Component {
 
   render_songs(searchData) {
     // console.log(this.state.songs);
-    var array = searchData.filter(function (el){
+    var array = searchData.filter(function (el) {
       return el != null;
     });
     var songs = array.map((item, idx) =>
@@ -156,7 +156,7 @@ class App extends Component {
         />
       </div>
     );
-   songs = <div className="App-grid-container">{songs}</div>; 
+    songs = <div className="App-grid-container">{songs}</div>;
     return songs;
   }
 
@@ -190,18 +190,13 @@ class App extends Component {
     return feeds;
   }
 
-  searchCallback= (searchData)=>{
-    {/*this.setState({row1:this.render_songs(searchData)});
-     this.state.row1=this.render_songs(searchData);
-      
-      console.log(this.state.row1);*/}
-      document.getElementById('row1').innerHTML=ReactDOMServer.renderToString(this.render_songs(searchData));
-
+  searchCallback = (searchData) => {
+    document.getElementById('row1').innerHTML = ReactDOMServer.renderToString(this.render_songs(searchData));
   };
 
   render() {
     var row1 = this.render_songs(this.state.songs);
-    
+
     var renderfeeds = this.render_feed();
 
     return (
@@ -210,11 +205,11 @@ class App extends Component {
           <Profile />
         </div>
 
-        
-        <div className="App-grid-container" style={{width: 250}}>
-          <Search songs={this.state.songs} callbackFromParent={this.searchCallback}/>
+
+        <div className="App-grid-container" style={{ width: 250 }}>
+          <Search songs={this.state.songs} callbackFromParent={this.searchCallback} />
         </div>
-        
+
         <div id="row1">{row1}</div>
 
         <Menu className="Feeds-grid-container"
@@ -231,7 +226,6 @@ class App extends Component {
             {renderfeeds}
           </SubMenu>
         </Menu>
-        {row1}
         <br></br><br></br><br></br><br></br>
         <MusicPlayer
           songs_list={this.state.playing}
