@@ -1,5 +1,5 @@
 # tienthegainz
-React project ITSS
+HEDSPIFY - Ablum Audio
 
 # How to install
 **There is problem with `docker-compose up`**
@@ -12,3 +12,14 @@ React project ITSS
 ****
 - Please fork into your own repo
 - Make issue and link it to your pull request
+
+# UI
+****
+![](Hedspify.png)
+
+# Features
+****
+- Album collections
+- Audio player
+- Newsfeed
+- Search ablum
