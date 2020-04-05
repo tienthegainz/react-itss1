@@ -3,6 +3,8 @@ import './App.css';
 import SongIcon from './SongIcon.js';
 import Profile from './Profile.js';
 import Search from './Search.js';
+import ReactDOMServer from 'react-dom/server'
+
 
 class App extends Component {
   constructor() {
@@ -49,15 +51,16 @@ class App extends Component {
           image: "https://media.ex-cdn.com/EXP/media.homeaz.vn/files/content/2019/10/23/tf8tj-so-15715778039661027443493-1108.jpeg",
           description: "Vietnamese top chart single.",
         },
-      ],
-      row1: <p/>,
-
+      ]
     };
   }
 
   render_songs(searchData) {
     // console.log(this.state.songs);
-    var songs = searchData.map((item, idx) =>
+    var array = searchData.filter(function (el){
+      return el != null;
+    });
+    var songs = array.map((item, idx) =>
       <div className="App-grid-item">
         <SongIcon
           index={idx}
@@ -68,7 +71,7 @@ class App extends Component {
         />
       </div>
     );
-    songs = <div className="App-grid-container">{songs}</div>;
+   songs = <div className="App-grid-container">{songs}</div>; 
     return songs;
   }
 
@@ -77,23 +80,28 @@ class App extends Component {
   }
 
   searchCallback= (searchData)=>{
-    {/* this.state.row1=this.render_songs(searchData); 
-      console.log(searchData[1]); */}
+    {/*this.setState({row1:this.render_songs(searchData)});
+     this.state.row1=this.render_songs(searchData);
+      
+      console.log(this.state.row1);*/}
+      document.getElementById('row1').innerHTML=ReactDOMServer.renderToString(this.render_songs(searchData));
+
   };
 
   render() {
-    this.state.row1 = this.render_songs(this.state.songs);
+     var row1 = this.render_songs(this.state.songs);
+
     return (
       <div className="App">
         <div className="App-profile">
           <Profile />
         </div>
         
-      <div className="App-grid-container" style={{width: 250}}>
-        <Search songs={this.state.songs} callbackFromParent={this.searchCallback}/>
-      </div>
-        {this.state.row1}
+        <div className="App-grid-container" style={{width: 250}}>
+          <Search songs={this.state.songs} callbackFromParent={this.searchCallback}/>
+        </div>
         
+        <div id="row1">{row1}</div>
       </div>
     );
   }

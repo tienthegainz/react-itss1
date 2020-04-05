@@ -33,7 +33,7 @@ class Search extends Component{
   		<label>
     	
     	<Input placeholder="Song Search" onChange={this.handleOnInputChange} enterButton />
-    	<i class="fa fa-search" aria-hidden="true"/>
+    	
     	
   		</label>
   )
