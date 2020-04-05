@@ -12,6 +12,7 @@
     "mkdirp": "^1.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-jinke-music-player": "^4.10.1",
     "react-scripts": "3.4.1"
   },
   "scripts": {
