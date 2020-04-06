@@ -21,9 +21,10 @@ class Search extends Component {
           results[idx] = item;
         }
       });
-      this.setState({
-        results: results,
-      });
+      this.state.results = results;
+      // this.setState({
+      //   results: results,
+      // });
     }
     this.props.callbackFromParent(this.state.results);
   };
@@ -32,7 +33,7 @@ class Search extends Component {
     return (
       <label>
         <Input
-          placeholder="Song Search"
+          placeholder="Album Search"
           onChange={this.handleOnInputChange}
           enterButton
         />
