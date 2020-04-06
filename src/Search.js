@@ -26,6 +26,7 @@ class Search extends Component {
       //   results: results,
       // });
     }
+
     this.props.callbackFromParent(this.state.results);
   };
 
