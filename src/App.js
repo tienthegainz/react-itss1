@@ -211,8 +211,8 @@ class App extends Component {
     return feeds;
   }
 
-  searchCallback = (searchData) => {
-    if (searchData.length > 0) {
+  searchCallback = (searchData, empty) => {
+    if (empty === false) {
       this.setState({
         albums: searchData,
       });

@@ -25,9 +25,11 @@ class Search extends Component {
       // this.setState({
       //   results: results,
       // });
+      this.props.callbackFromParent(this.state.results, false);
     }
-
-    this.props.callbackFromParent(this.state.results);
+    else {
+      this.props.callbackFromParent(this.state.results, true);
+    }
   };
 
   render() {
