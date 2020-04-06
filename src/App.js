@@ -224,8 +224,6 @@ class App extends Component {
   };
 
   render() {
-    var row1 = this.render_songs(this.state.albums);
-
     var renderfeeds = this.render_feed();
 
     return (
@@ -236,12 +234,12 @@ class App extends Component {
 
         <div className="App-grid-container" style={{ width: 250 }}>
           <Search
-            albums={this.state.albums}
+            albums={all_albums}
             callbackFromParent={this.searchCallback}
           />
         </div>
 
-        <div id="row1">{row1}</div>
+        <div>{this.render_songs(this.state.albums)}</div>
 
         <Menu
           className="Feeds-grid-container"

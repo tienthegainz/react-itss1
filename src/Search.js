@@ -21,10 +21,11 @@ class Search extends Component {
           results[idx] = item;
         }
       });
-      this.setState({
-        results: results,
-      });
+
+      this.state.results=results;
+
     }
+
     this.props.callbackFromParent(this.state.results);
   };
 
