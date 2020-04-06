@@ -1,5 +1,5 @@
 # tienthegainz
-HEDSPIFY - Ablum Audio
+HEDSPIFY - Album Audio
 
 # How to install
 **There is problem with `docker-compose up`**
@@ -22,4 +22,4 @@ HEDSPIFY - Ablum Audio
 - Album collections
 - Audio player
 - Newsfeed
-- Search ablum
+- Search albums dynamically
