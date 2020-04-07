@@ -185,14 +185,16 @@ class App extends Component {
   }
 
   play_song(index, item) {
+    // var arr = this.state.playing;
     var arr = [];
     for (var i = 0; i < item.audio.length; i++) {
       arr.push(this.state.songs[item.audio[i]]);
     }
+
     this.setState({
       playing: arr,
     });
-    // console.log(this.state.playing);
+    console.log("Song list: ", this.state.playing.length);
   }
 
   render_feed() {
@@ -203,7 +205,7 @@ class App extends Component {
           username={item.user}
           usercontent={item.usercontent}
 
-        // onClick={() => this.play_song(idx)}
+          // onClick={() => this.play_song(idx)}
         />
       </div>
     ));
@@ -225,6 +227,7 @@ class App extends Component {
 
   render() {
     var renderfeeds = this.render_feed();
+    var songs = this.state.playing;
 
     return (
       <div className="App">
@@ -232,7 +235,7 @@ class App extends Component {
           <Profile />
         </div>
 
-        <div className="App-grid-container" style={{ width: 250 }}>
+        <div className="App-search-bar">
           <Search
             albums={all_albums}
             callbackFromParent={this.searchCallback}
@@ -255,7 +258,7 @@ class App extends Component {
         <br></br>
         <br></br>
         <br></br>
-        <MusicPlayer songs_list={this.state.playing} />
+        <MusicPlayer songs_list={songs} />
       </div>
     );
   }

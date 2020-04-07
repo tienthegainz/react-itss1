@@ -1,4 +1,4 @@
-.App{
+.App {
   background-color: lightblue;
 }
 
@@ -9,8 +9,8 @@
 .App-grid-container {
   display: grid;
   grid-template-columns: 20% 20% 20% 20%;
-  padding-top: 100px;
-  padding-left: 50px;
+  padding-top: 2.5%;
+  padding-left: 5%;
 }
 
 .App-grid-item {
@@ -18,8 +18,8 @@
 }
 
 .App-profile {
-  padding-top: 20px;
-  padding-left: 80%;
+  padding-top: 2.5%;
+  padding-left: 68%;
 }
 .Feeds-grid-container {
   background-color: lightblue;
@@ -33,4 +33,9 @@
   /* padding-top: 10px;
   padding-left: 1050px;
   padding-bottom: 0px; */
+}
+
+.App-search-bar {
+  padding-left: 5%;
+  width: 20%;
 }
