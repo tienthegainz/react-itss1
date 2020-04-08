@@ -5,11 +5,9 @@ FROM node:12.16.1-alpine
 WORKDIR /app
 
 # install and cache app dependencies
-COPY . .
+COPY package*.json ./
 RUN yarn
-RUN yarn add antd
-RUN yarn add react-jinke-music-player
+COPY . .
 
-EXPOSE 3000
 # start app
 CMD ["yarn", "start"]
