@@ -2,11 +2,8 @@
 HEDSPIFY - Album Audio
 
 # How to install
-**There is problem with `docker-compose up`**
 *****
-- Build image: `docker-compose build`
-- Search: `docker image -ls` and find IMAGE ID of `react-itss1_react` image
-- Run: `docker run -it [IMAGE ID]`
+- Build and run: `docker-compose up --build`
 
 # How to pull request
 ****
