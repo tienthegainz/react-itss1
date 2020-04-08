@@ -142,21 +142,21 @@ class App extends Component {
         },
       ],
       feed: [
-        {
-          user: "some user name",
-          usercontent: "All too well",
-        },
+
         {
           user: "Taeyeon",
           usercontent: "こんにちは",
+          audio: [3, 0, 1, 2]
         },
         {
           user: "Bui Ngoc Tu",
           usercontent: "Look what you made me do",
+          audio: [3, 0, 2],
         },
         {
           user: "Taylor Swift",
           usercontent: "Born this way",
+          audio: [1, 2],
         },
       ],
       playing: [],
@@ -166,28 +166,28 @@ class App extends Component {
 
   render_songs(searchData) {
     // console.log(this.state.songs);
-    var array = searchData.filter(function (el) {
-      return el != null;
-    });
-    var songs = array.map((item, idx) => (
-      <div className="App-grid-item">
-        <AlbumIcon
-          index={idx}
-          name={item.name}
-          cover={item.cover}
-          description={item.description}
-          onClick={() => this.play_song(idx, item)}
-        />
-      </div>
-    ));
-    songs = <div className="App-grid-container">{songs}</div>;
+      let array = searchData.filter(function (el) {
+          return el != null;
+      });
+      let songs = array.map((item, idx) => (
+          <div className="App-grid-item">
+              <AlbumIcon
+                  index={idx}
+                  name={item.name}
+                  cover={item.cover}
+                  description={item.description}
+                  onClick={() => this.play_song(idx, item)}
+              />
+          </div>
+      ));
+      songs = <div className="App-grid-container">{songs}</div>;
     return songs;
   }
 
   play_song(index, item) {
-    // var arr = this.state.playing;
-    var arr = [];
-    for (var i = 0; i < item.audio.length; i++) {
+    // let arr = this.state.playing;
+      let arr = [];
+      for (let i = 0; i < item.audio.length; i++) {
       arr.push(this.state.songs[item.audio[i]]);
     }
 
@@ -198,14 +198,13 @@ class App extends Component {
   }
 
   render_feed() {
-    var feeds = this.state.feed.map((item, idx) => (
+    let feeds = this.state.feed.map((item, idx) => (
       <div>
         <NewsFeed
           index={idx}
           username={item.user}
           usercontent={item.usercontent}
-
-          // onClick={() => this.play_song(idx)}
+          onClick={() => this.play_song(idx,item)}
         />
       </div>
     ));
@@ -226,8 +225,8 @@ class App extends Component {
   };
 
   render() {
-    var renderfeeds = this.render_feed();
-    var songs = this.state.playing;
+    let renderfeeds = this.render_feed();
+    let songs = this.state.playing;
 
     return (
       <div className="App">
@@ -254,10 +253,10 @@ class App extends Component {
             {renderfeeds}
           </SubMenu>
         </Menu>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <MusicPlayer songs_list={songs} />
       </div>
     );
