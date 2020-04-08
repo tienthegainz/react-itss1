@@ -12,11 +12,11 @@ class NewsFeed extends Component {
     }
     render() {
         return (
-            <Card hoverable bordered={false}>
-                <div class="User-name" >
+            <Card hoverable bordered={false} onClick={this.props.onClick}>
+                <div className="User-name" >
                     <b> {this.props.username}</b>
                 </div>
-                <div onClick={this.seeMore}>
+                <div >
                     {this.props.usercontent}
                 </div>
             </Card >
