@@ -10,4 +10,4 @@ services:
       - .:/app
     ports:
       - '3000:3000'
-    # command: 'yarn start'
+    tty: true
